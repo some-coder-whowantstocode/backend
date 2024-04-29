@@ -3,14 +3,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const User = require("./models/user.model"); // Import User model
 const Admin = require("./models/admin.model"); // Import Admin model
-// var bodyParser = require("body-parser");
 
 const app = express();
 app.use(express.json());
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-// console.log(bodyParser, "bodyParser");
 
 mongoose.connect("mongodb://localhost:27017/test");
 app.get("/allusers", async (req, res) => {
